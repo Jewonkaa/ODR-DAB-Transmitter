@@ -1,0 +1,113 @@
+ 
+general {
+    dabmode 1
+    nbframes 0
+    tist true
+}
+
+remotecontrol { telnetport 0 }
+
+ensemble {
+    id 0x4fff
+    ecc 0xec
+    local-time-offset auto
+    international-table 1
+    label "Test AGH Mux"
+    shortlabel "AGH Mux"
+}
+
+services {
+    srv-p1 { label "Radio 1" }
+    srv-p2 { label "Radio 2" }
+    srv-p3 { label "Radio 3" }
+}
+subchannels {
+    sub-p1 {
+        ; MPEG
+        type dabplus
+        bitrate 120
+        id 1
+        protection 3
+        inputfile "tcp://*:9001"
+        zmq-buffer 40
+        zmq-prebuffering 20
+    }
+    sub-p2 {
+        ; MPEG
+        type dabplus
+        bitrate 120
+        id 2
+        protection 3
+        inputfile "tcp://*:9002"
+        zmq-buffer 40
+        zmq-prebuffering 20
+    }
+    sub-p3 {
+        ; MPEG
+        type dabplus
+        bitrate 120
+        id 3
+        protection 3
+        inputfile "tcp://*:9003"
+        zmq-buffer 40
+        zmq-prebuffering 20
+    }
+}
+components {
+    comp-p1 {
+        label Prog1
+        service srv-p1
+        subchannel sub-p1
+    }
+    
+    comp-p2 {
+        label Prog2
+        service srv-p2
+        subchannel sub-p2
+    }
+
+    comp-p3 {
+        label Prog3
+        service srv-p3
+        subchannel sub-p3
+    }
+}
+
+; A list of outputs
+outputs {
+    ; The unique-id can be used by the remote control or the statistics server
+    ; to identify the output
+
+    ; Output RAW ETI NI to standard output
+    ;stdout "fifo:///dev/stdout?type=raw"
+
+    edi {
+        ; Example EDI-over-TCP output
+        ; If TIST is enabled, requires leap-second information
+        destinations {
+            example_tcp {
+                protocol tcp
+                listenport 9201
+                ; (Optional) When a new client connects, it will receive a pre-roll burst of EDI data, so that it can quickly fill
+                ; its buffers. The value given is the duration of the pre-roll in seconds.
+                ; It makes sense to have a value slightly larger than tist-offset to ensure the destination will receive
+                ; data that will allow it to start transmitting immediately.
+                ;preroll-burst 2.0
+            }
+        }
+    }
+
+    ; Throttle output to real-time (one ETI frame every 24ms)
+    throttle "simul://"
+
+    ; Important! For real-time operation, you need to have exactly one
+    ; output that applies back-pressure to ODR-DabMux, otherwise it will run
+    ; at the highest possible rate on your system!
+    ;
+    ; For an output to a pipe, the data consumer at the other end of the pipe
+    ; will dictate the multiplexing rate to ODR-DabMux.
+    ;
+    ; If you use the EDI output, you must also enable a simul:// output!
+
+    ; More options are given in doc/advanced.mux
+}

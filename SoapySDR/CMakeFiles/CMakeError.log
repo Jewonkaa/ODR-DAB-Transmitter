@@ -1,0 +1,33 @@
+Looking for a CSharp compiler failed with the following output:
+CMake Error at /usr/share/cmake-3.16/Modules/CMakeDetermineCSharpCompiler.cmake:5 (message):
+  C# is currently only supported for Microsoft Visual Studio 2010 and later.
+Call Stack (most recent call first):
+  CMakeLists.txt:2 (project)
+
+
+CMake Error: CMAKE_CSharp_COMPILER not set, after EnableLanguage
+-- Configuring incomplete, errors occurred!
+See also "/home/iwona/ODR-DAB/SoapySDR/swig/csharp/CMakeFiles/CheckCSharp/CMakeFiles/CMakeOutput.log".
+
+Performing C++ SOURCE FILE Test SIZE_T_IS_UNSIGNED_INT failed with the following output:
+Change Dir: /home/iwona/ODR-DAB/SoapySDR/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_ea481/fast && /usr/bin/make -f CMakeFiles/cmTC_ea481.dir/build.make CMakeFiles/cmTC_ea481.dir/build
+make[1]: Entering directory '/home/iwona/ODR-DAB/SoapySDR/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_ea481.dir/src.cxx.o
+/usr/bin/c++    -DSIZE_T_IS_UNSIGNED_INT   -o CMakeFiles/cmTC_ea481.dir/src.cxx.o -c /home/iwona/ODR-DAB/SoapySDR/CMakeFiles/CMakeTmp/src.cxx
+/home/iwona/ODR-DAB/SoapySDR/CMakeFiles/CMakeTmp/src.cxx: In function ‘int main()’:
+/home/iwona/ODR-DAB/SoapySDR/CMakeFiles/CMakeTmp/src.cxx:4:38: error: cannot convert ‘unsigned int*’ to ‘size_t*’ {aka ‘long unsigned int*’} in initialization
+    4 |     size_t *x = (unsigned int *)(NULL);
+      |                                      ^
+make[1]: *** [CMakeFiles/cmTC_ea481.dir/build.make:66: CMakeFiles/cmTC_ea481.dir/src.cxx.o] Error 1
+make[1]: Leaving directory '/home/iwona/ODR-DAB/SoapySDR/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_ea481/fast] Error 2
+
+
+Source file was:
+
+    #include <cstddef>
+    int main() {
+    size_t *x = (unsigned int *)(NULL);
+    return 0; }

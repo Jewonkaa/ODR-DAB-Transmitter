@@ -1,0 +1,40 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/iwona/ODR-DAB/SoapySDR/SoapySDR/tests/TestTimeConversion.cpp
+SoapySDR/Time.hpp
+-
+cstdlib
+-
+cstdio
+-
+cmath
+-
+
+SoapySDR/include/SoapySDR/Config.h
+iso646.h
+-
+stdbool.h
+-
+
+SoapySDR/include/SoapySDR/Config.hpp
+SoapySDR/Config.h
+-
+ciso646
+-
+
+SoapySDR/include/SoapySDR/Time.h
+SoapySDR/Config.h
+-
+
+SoapySDR/include/SoapySDR/Time.hpp
+SoapySDR/Config.hpp
+-
+SoapySDR/Time.h
+-
+

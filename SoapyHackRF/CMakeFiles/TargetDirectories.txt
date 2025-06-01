@@ -1,0 +1,8 @@
+/home/iwona/ODR-DAB/SoapyHackRF/CMakeFiles/install/strip.dir
+/home/iwona/ODR-DAB/SoapyHackRF/CMakeFiles/install/local.dir
+/home/iwona/ODR-DAB/SoapyHackRF/CMakeFiles/install.dir
+/home/iwona/ODR-DAB/SoapyHackRF/CMakeFiles/list_install_components.dir
+/home/iwona/ODR-DAB/SoapyHackRF/CMakeFiles/rebuild_cache.dir
+/home/iwona/ODR-DAB/SoapyHackRF/CMakeFiles/edit_cache.dir
+/home/iwona/ODR-DAB/SoapyHackRF/CMakeFiles/uninstall.dir
+/home/iwona/ODR-DAB/SoapyHackRF/CMakeFiles/HackRFSupport.dir
