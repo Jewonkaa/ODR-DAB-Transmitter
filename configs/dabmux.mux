@@ -12,14 +12,15 @@ ensemble {
     ecc 0xec
     local-time-offset auto
     international-table 1
-    label "Test AGH Mux"
-    shortlabel "AGH Mux"
+    label "Test Alarm Mux"
+    shortlabel "AlarmMux"
 }
 
 services {
     srv-p1 { label "Radio 1" }
     srv-p2 { label "Radio 2" }
     srv-p3 { label "Radio 3" }
+    srv-p4 { label "Alarming" }
 }
 subchannels {
     sub-p1 {
@@ -52,6 +53,16 @@ subchannels {
         zmq-buffer 40
         zmq-prebuffering 20
     }
+    sub-p4 {
+        ; MPEG
+        type dabplus
+        bitrate 120
+        id 4
+        protection 3
+        inputfile "tcp://*:9004"
+        zmq-buffer 40
+        zmq-prebuffering 20
+    }
 }
 components {
     comp-p1 {
@@ -70,6 +81,12 @@ components {
         label Prog3
         service srv-p3
         subchannel sub-p3
+    }
+    
+    comp-p4 {
+        label Prog4
+        service srv-p4
+        subchannel sub-p4
     }
 }
 

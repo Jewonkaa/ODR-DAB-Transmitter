@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=Start DAB Station 4 (Alarming) step 1
+Exec=konsole --hold -e bash -c "$(dirname '%k')/../configs/start_station_4_alarming_1.sh"
+Type=Application
+Terminal=false
+Icon=utilities-terminal

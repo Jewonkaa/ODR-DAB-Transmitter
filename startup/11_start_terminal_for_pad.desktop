@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=Start Terminal to manage PAD Data
+Exec=konsole --hold -e bash -c "$(dirname '%k')/../configs/Send_PAD_Text.sh"
+Type=Application
+Terminal=false
+Icon=utilities-terminal

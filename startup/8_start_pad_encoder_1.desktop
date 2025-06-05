@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=Start DAB PAD Encoder for station 1
+Exec=konsole --hold -e bash -c "$(dirname '%k')/../configs/start_pad_encoder_1.sh"
+Type=Application
+Terminal=false
+Icon=utilities-terminal

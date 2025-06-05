@@ -1,6 +1,6 @@
 [Desktop Entry]
 Name=Start DAB Modulator
-Exec=konsole -e bash -c "$(dirname '%k')/start_modulator.sh"
+Exec=konsole --hold -e bash -c "$(dirname '%k')/../configs/start_modulator.sh"
 Type=Application
 Terminal=false
 Icon=utilities-terminal
