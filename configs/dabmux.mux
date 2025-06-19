@@ -18,7 +18,7 @@ ensemble {
     shortlabel "AlarmMux"
     
     announcements {
-        test {
+        alarm {
             cluster 1
             flags {
                 ;Alarm true
@@ -33,9 +33,8 @@ ensemble {
 services {
 
     srv-p1 { 
-    label "Radio 1"
-    shortlabel "R1"
-    ;announcements [ emergency ]
+    label "Radio 1 Rock Ant"
+    shortlabel "Radio 1"
     
     announcements {
             Alarm false
@@ -58,9 +57,8 @@ services {
     }
     
     srv-p2 { 
-    label "Radio 2"
-    shortlabel "R2"
-    ;announcements [ emergency ]
+    label "Radio 2 Trendy"
+    shortlabel "Radio 2"
     
     announcements {
             Alarm false
@@ -79,13 +77,11 @@ services {
             ; cluster id 255 is not specified here and is ignored (for FIG 0/18)
             clusters "1,2"
         }
-    
     }
     
     srv-p3 {
-    label "Radio 3"
-    shortlabel "R3"
-    ;announcements [ emergency ]
+    label "Radio 3 Trance"
+    shortlabel "Radio 3"
     
     announcements {
             Alarm false
@@ -104,14 +100,11 @@ services {
             ; cluster id 255 is not specified here and is ignored (for FIG 0/18)
             clusters "1,2"
         }
-    
     }
     
     srv-p4 { 
     label "Alarming"
-    shortlabel "Al"
-    is_announcement_source true
-    ;announcements [ emergency ]
+    shortlabel "Alarm"
     
         announcements {
             Alarm false
@@ -130,9 +123,7 @@ services {
             ; cluster id 255 is not specified here and is ignored (for FIG 0/18)
             clusters "1,2"
         }
-    
     }
-    
 }
 subchannels {
     sub-p1 {
@@ -178,32 +169,23 @@ subchannels {
 }
 components {
     comp-p1 {
-        ;label Prog1
-        ;shortlabel P1
         service srv-p1
         subchannel sub-p1
     }
     
     comp-p2 {
-        ;label Prog2
-        ;shortlabel P2
         service srv-p2
         subchannel sub-p2
     }
 
     comp-p3 {
-        ;label Prog3
-        ;shortlabel P3
         service srv-p3
         subchannel sub-p3
     }
     
     comp-p4 {
-        ;label Prog4
-        ;shortlabel P4
         service srv-p4
         subchannel sub-p4
-        ;announcement emergency
     }
 }
 
@@ -245,9 +227,3 @@ outputs {
 
     ; More options are given in doc/advanced.mux
 }
-
-;announcement_support {
-;    announcement_type emergency
-;    service srv-p4  ;station 4 Alarming as alarm source
-;    targets [srv-p1, srv-p2, srv-p3] ;stations which should react to alarm
-;}
