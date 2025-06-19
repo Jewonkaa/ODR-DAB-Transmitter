@@ -5,7 +5,9 @@ general {
     tist true
 }
 
-remotecontrol { telnetport 0 }
+remotecontrol {
+    telnetport 9090 
+}
 
 ensemble {
     id 0x4fff
@@ -14,13 +16,123 @@ ensemble {
     international-table 1
     label "Test Alarm Mux"
     shortlabel "AlarmMux"
+    
+    announcements {
+        test {
+            cluster 1
+            flags {
+                ;Alarm true
+                Warning true
+            }
+
+            subchannel sub-p4
+        }
+    }
 }
 
 services {
-    srv-p1 { label "Radio 1" }
-    srv-p2 { label "Radio 2" }
-    srv-p3 { label "Radio 3" }
-    srv-p4 { label "Alarming" }
+
+    srv-p1 { 
+    label "Radio 1"
+    shortlabel "R1"
+    ;announcements [ emergency ]
+    
+    announcements {
+            Alarm false
+            Traffic false
+            Travel false
+            Warning true
+            News ftruealse
+            Weather false
+            Event false
+            Special false
+            ProgrammeInfo false
+            Sports false
+            Finance false
+
+            ; a comma separated list of clusters in which the service belongs to
+            ; cluster id 255 is not specified here and is ignored (for FIG 0/18)
+            clusters "1,2"
+        }
+    
+    }
+    
+    srv-p2 { 
+    label "Radio 2"
+    shortlabel "R2"
+    ;announcements [ emergency ]
+    
+    announcements {
+            Alarm false
+            Traffic false
+            Travel false
+            Warning true
+            News ftruealse
+            Weather false
+            Event false
+            Special false
+            ProgrammeInfo false
+            Sports false
+            Finance false
+
+            ; a comma separated list of clusters in which the service belongs to
+            ; cluster id 255 is not specified here and is ignored (for FIG 0/18)
+            clusters "1,2"
+        }
+    
+    }
+    
+    srv-p3 {
+    label "Radio 3"
+    shortlabel "R3"
+    ;announcements [ emergency ]
+    
+    announcements {
+            Alarm false
+            Traffic false
+            Travel false
+            Warning true
+            News ftruealse
+            Weather false
+            Event false
+            Special false
+            ProgrammeInfo false
+            Sports false
+            Finance false
+
+            ; a comma separated list of clusters in which the service belongs to
+            ; cluster id 255 is not specified here and is ignored (for FIG 0/18)
+            clusters "1,2"
+        }
+    
+    }
+    
+    srv-p4 { 
+    label "Alarming"
+    shortlabel "Al"
+    is_announcement_source true
+    ;announcements [ emergency ]
+    
+        announcements {
+            Alarm false
+            Traffic false
+            Travel false
+            Warning true
+            News ftruealse
+            Weather false
+            Event false
+            Special false
+            ProgrammeInfo false
+            Sports false
+            Finance false
+
+            ; a comma separated list of clusters in which the service belongs to
+            ; cluster id 255 is not specified here and is ignored (for FIG 0/18)
+            clusters "1,2"
+        }
+    
+    }
+    
 }
 subchannels {
     sub-p1 {
@@ -66,27 +178,32 @@ subchannels {
 }
 components {
     comp-p1 {
-        label Prog1
+        ;label Prog1
+        ;shortlabel P1
         service srv-p1
         subchannel sub-p1
     }
     
     comp-p2 {
-        label Prog2
+        ;label Prog2
+        ;shortlabel P2
         service srv-p2
         subchannel sub-p2
     }
 
     comp-p3 {
-        label Prog3
+        ;label Prog3
+        ;shortlabel P3
         service srv-p3
         subchannel sub-p3
     }
     
     comp-p4 {
-        label Prog4
+        ;label Prog4
+        ;shortlabel P4
         service srv-p4
         subchannel sub-p4
+        ;announcement emergency
     }
 }
 
@@ -128,3 +245,9 @@ outputs {
 
     ; More options are given in doc/advanced.mux
 }
+
+;announcement_support {
+;    announcement_type emergency
+;    service srv-p4  ;station 4 Alarming as alarm source
+;    targets [srv-p1, srv-p2, srv-p3] ;stations which should react to alarm
+;}
