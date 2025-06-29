@@ -21,7 +21,7 @@ ensemble {
         alarm {
             cluster 1
             flags {
-                ;Alarm true
+                ;Alarm  true
                 Warning true
             }
 
@@ -37,17 +37,17 @@ services {
     shortlabel "Radio 1"
     
     announcements {
-            Alarm false
-            Traffic false
-            Travel false
-            Warning true
-            News ftruealse
-            Weather false
-            Event false
-            Special false
-            ProgrammeInfo false
-            Sports false
-            Finance false
+            Alarm           false
+            Traffic         false
+            Travel          false
+            Warning         true
+            News            false
+            Weather         false
+            Event           false
+            Special         false
+            ProgrammeInfo   false
+            Sports          false
+            Finance         false
 
             ; a comma separated list of clusters in which the service belongs to
             ; cluster id 255 is not specified here and is ignored (for FIG 0/18)
@@ -61,17 +61,17 @@ services {
     shortlabel "Radio 2"
     
     announcements {
-            Alarm false
-            Traffic false
-            Travel false
-            Warning true
-            News ftruealse
-            Weather false
-            Event false
-            Special false
-            ProgrammeInfo false
-            Sports false
-            Finance false
+            Alarm           false
+            Traffic         false
+            Travel          false
+            Warning         true
+            News            false
+            Weather         false
+            Event           false
+            Special         false
+            ProgrammeInfo   false
+            Sports          false
+            Finance         false
 
             ; a comma separated list of clusters in which the service belongs to
             ; cluster id 255 is not specified here and is ignored (for FIG 0/18)
@@ -84,17 +84,17 @@ services {
     shortlabel "Radio 3"
     
     announcements {
-            Alarm false
-            Traffic false
-            Travel false
-            Warning true
-            News ftruealse
-            Weather false
-            Event false
-            Special false
-            ProgrammeInfo false
-            Sports false
-            Finance false
+            Alarm           false
+            Traffic         false
+            Travel          false
+            Warning         true
+            News            false
+            Weather         false
+            Event           false
+            Special         false
+            ProgrammeInfo   false
+            Sports          false
+            Finance         false
 
             ; a comma separated list of clusters in which the service belongs to
             ; cluster id 255 is not specified here and is ignored (for FIG 0/18)
@@ -107,17 +107,17 @@ services {
     shortlabel "Alarm"
     
         announcements {
-            Alarm false
-            Traffic false
-            Travel false
-            Warning true
-            News ftruealse
-            Weather false
-            Event false
-            Special false
-            ProgrammeInfo false
-            Sports false
-            Finance false
+            Alarm           false
+            Traffic         false
+            Travel          false
+            Warning         true
+            News            false
+            Weather         false
+            Event           false
+            Special         false
+            ProgrammeInfo   false
+            Sports          false
+            Finance         false
 
             ; a comma separated list of clusters in which the service belongs to
             ; cluster id 255 is not specified here and is ignored (for FIG 0/18)
