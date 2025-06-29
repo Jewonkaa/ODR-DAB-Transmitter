@@ -18,7 +18,7 @@ ensemble {
     shortlabel "AlarmMux"
     
     announcements {
-        alarm {
+        test_alarm {
             cluster 1
             flags {
                 ;Alarm  true

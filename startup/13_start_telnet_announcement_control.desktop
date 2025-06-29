@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=DAB Transmitter - Announcement Alarm Control Interface
+Exec=konsole --hold -e bash -c "$(dirname '%k')/../configs/start_telnet_announcement_control.sh"
+Type=Application
+Terminal=false
+Icon=utilities-terminal 
